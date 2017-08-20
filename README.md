@@ -1,6 +1,9 @@
 ## Contacty - The contacts app
 
 **Demo only**
+_this is not a boilerplate. It still needs unit testing config, ci integration, optimizations for different platforms 
+and assets_
+
 
 ### Install
 
