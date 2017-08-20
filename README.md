@@ -2,6 +2,24 @@
 
 **Demo only**
 
+### Install
+
+`
+  git clone https://github.com/gp187/ionic-contacts-app
+  cd ionic-contacts-app/
+  npm install -g cordova ionic 
+  npm install
+  ionic serve
+`
+
+### To add iOS/Android platforms
+`
+  ionic cordova platform 
+  ionic cordova platform add ios
+  ionic cordova platform add android
+  ionic cordova platform rm ios
+`
+
 ### Features
 - list contacts 
 - show contact
