@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="save()">
+    <ion-item-group>
+      <ion-item-divider color="light">Name</ion-item-divider>
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input type="text" formControlName="first_name" placeholder="First Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text" formControlName="last_name" placeholder="Last Name"></ion-input>
+      </ion-item>
+    </ion-item-group>
+
+
+
+    <ion-item-group formArrayName="phone_numbers">
+      <ion-item-divider color="light">Phone Numbers</ion-item-divider>
+
+      <ion-item-group *ngFor="let phone of phoneNumbers.controls; let i = index" [formGroupName]="i">
+        <ion-item>
+          <ion-label>Type</ion-label>
+          <ion-select formControlName="type">
+            <ion-option *ngFor="let t of phoneTypes" [value]="t.key">{{t.value}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Phone Number</ion-label>
+          <ion-input type="number" formControlName="phone" placeholder="Phone"></ion-input>
+        </ion-item>
+        <button ion-button color="danger" round (click)="removePhoneNumber(i)">Remove</button>
+
+      </ion-item-group>
+      <a ion-button block clear (click)="addPhoneNumber()">
+        <ion-icon name="add-circle"></ion-icon>
+        Add
+      </a>
+    </ion-item-group>
+
+
+
+
+
+    <ion-item-group formGroupName="address">
+      <ion-item-divider color="light">Address</ion-item-divider>
+
+        <ion-item>
+          <ion-label floating>Address Line 1</ion-label>
+          <ion-input type="text" formControlName="address_line_1" placeholder="Address Line 1"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Address Line 2</ion-label>
+          <ion-input type="text" formControlName="address_line_2" placeholder="Address Line 2"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>City</ion-label>
+          <ion-input type="text" formControlName="city" placeholder="City"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>County</ion-label>
+          <ion-input type="text" formControlName="county" placeholder="County"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Zip</ion-label>
+          <ion-input type="text" formControlName="zip" placeholder="Zip"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Country</ion-label>
+          <ion-input type="text" formControlName="country" placeholder="Country"></ion-input>
+        </ion-item>
+
+    </ion-item-group>
+
+    <button ion-button type="submit" block [disabled]="!formGroup.valid">Save</button>
+    <button ion-button type="submit" block color="danger" *ngIf="!status.isNew">Delete</button>
+  </form>
+</ion-content>

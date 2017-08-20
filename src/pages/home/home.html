@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Contacts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+
+    <button ion-item *ngFor="let i of items" (click)="loadContact(i.key)">
+      <ion-icon name="contact" item-start></ion-icon> {{ i.first_name }} {{ i.last_name}}
+    </button>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="scrollDown($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading ..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

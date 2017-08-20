@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Demo
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-list>
+    <ion-item>
+      Generate 1000 contacts
+      <button ion-button outline item-end icon-left (click)="generate()">
+        <ion-icon name="star"></ion-icon>
+        Generate
+      </button>
+    </ion-item>
+    <ion-item>
+      Clear
+      <button ion-button outline item-end icon-left (click)="removeAll()">
+        <ion-icon name="star"></ion-icon>
+        Delete all
+      </button>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
